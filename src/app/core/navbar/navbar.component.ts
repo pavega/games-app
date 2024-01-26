@@ -12,4 +12,8 @@ export class NavbarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  onValueChange(value: string) {
+    console.log('InputValue:', value);
+  }
 }

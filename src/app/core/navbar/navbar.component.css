@@ -3,9 +3,7 @@
 }
 
 mat-toolbar{
-  background-color: var(--primary-color);
-  box-shadow: inset 0px 0px 106px -68px var(--light-color);
-  /* box-shadow: 0px 5px 10px -5px var(--accent-color); */
+  background-color: transparent;
 }
 
 span {
@@ -14,4 +12,12 @@ span {
 
 mat-icon{
   color: var(--light-color);
+}
+
+.left-pading{
+  padding-left: 2.5rem;
+}
+
+.right-pading{
+  padding-right: 2.5rem;
 }

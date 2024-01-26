@@ -1,9 +1,16 @@
 <mat-toolbar>
-  <span>{{ navbarTitle }}</span>
+  <!-- <section> -->
+  <span class="left-pading">{{ navbarTitle }}</span>
 
   <span class="spacer"></span>
 
-  <button mat-icon-button>
+  <app-custom-input
+    (valueChanged)="onValueChange($event)"
+    [placeholder]="'Search'"
+  ></app-custom-input>
+
+  <button mat-icon-button class="right-pading left-pading">
     <mat-icon>{{ iconName }}</mat-icon>
   </button>
+  <!-- </section> -->
 </mat-toolbar>
