@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Game } from 'src/app/model/game';
+import { ActionService } from 'src/app/services/action-service/action.service';
 import { GameService } from 'src/app/services/game-service/game.service';
 
 @Component({
@@ -7,10 +9,18 @@ import { GameService } from 'src/app/services/game-service/game.service';
   templateUrl: './get-games.component.html',
   styleUrls: ['./get-games.component.css'],
 })
-export class GetGamesComponent implements OnInit {
+export class GetGamesComponent implements OnInit, OnDestroy {
+  private actionSubscription: Subscription;
   games: Game[] = [];
 
-  constructor(private gameService: GameService) {}
+  constructor(
+    private gameService: GameService,
+    private actionService: ActionService
+  ) {
+    this.actionSubscription = this.actionService.action$.subscribe(() => {
+      this.handleAction();
+    });
+  }
 
   ngOnInit(): void {
     this.getGames();
@@ -33,5 +43,13 @@ export class GetGamesComponent implements OnInit {
         console.error('Fetching error', error);
       },
     });
+  }
+
+  handleAction() {
+    console.log('action');
+  }
+
+  ngOnDestroy(): void {
+    this.actionSubscription.unsubscribe();
   }
 }

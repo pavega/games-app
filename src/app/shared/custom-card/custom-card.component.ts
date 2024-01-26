@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActionService } from 'src/app/services/action-service/action.service';
 
 @Component({
   selector: 'app-custom-card',
@@ -8,7 +9,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CustomCardComponent implements OnInit {
   @Input() data: any;
 
-  constructor() {}
+  constructor(private actionService: ActionService) {}
 
   ngOnInit(): void {}
+
+  executeAction() {
+    this.actionService.triggerAction();
+  }
 }
