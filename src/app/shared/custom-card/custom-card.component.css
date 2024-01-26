@@ -1,0 +1,26 @@
+h5 {
+  color: var(--accent-color);
+  font-style: italic;
+  margin: 0;
+}
+.card{
+  border: 0;
+  background-color: transparent;
+  box-shadow: inset 0px -6px 14px -1px rgba(140,140,140,0.18);
+  color: var(--light-color)
+}
+
+.image-section{
+  border-radius: 9px;
+  /* border: 10px solid var(--primary-color); */
+}
+
+.card-footer {
+  background-color: transparent;
+  border-top: 0;
+}
+
+.btn {
+  background-color: var(--secondary-color);
+  color: var(--light-color);;
+}
